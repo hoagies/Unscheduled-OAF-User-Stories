@@ -10,6 +10,8 @@ Ext.define('CustomApp', {
 			xtype: 'rallycombobox',
 			width: 600,
 			fieldLabel: 'Select Initiative:',
+			// Default to I46
+			value: '/portfolioitem/initiative/36106803051',
 			// Display Template
 			displayTpl: Ext.create('Ext.XTemplate','<tpl for=".">','{FormattedID} - {Name}','</tpl>'),
 			// List Template
@@ -90,6 +92,7 @@ Ext.define('CustomApp', {
 		
 	_getFilter: function() {
 		var combo = this.down('rallycombobox');
+		console.log(combo.getValue());
 		var filters = Ext.create('Rally.data.QueryFilter', {
 			property: 'Feature.Parent.Parent',
 			operator: '=',
